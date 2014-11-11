@@ -1,24 +1,30 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Cusine -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Cusine %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cusine.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @cusine.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @cusine.description %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:icon) %></dt>
+      <dd><pre class="prettyprint"><%= @cusine.icon %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:image) %></dt>
+      <dd><pre class="prettyprint"><%= @cusine.image %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @cusine.description %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              cusines_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_cusine_path(@cusine), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              cusine_path(@cusine),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Icon:</strong>
-  <%= @cusine.icon %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @cusine.image %>
-</p>
-
-<%= link_to 'Edit', edit_cusine_path(@cusine) %> |
-<%= link_to 'Back', cusines_path %>

@@ -1,31 +1,42 @@
-<h1>Listing cusines</h1>
-
-<table>
+<%- model_class = Cusine -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Cusine %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Icon</th>
-      <th>Image</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:icon) %></th>
+      <th><%= model_class.human_attribute_name(:image) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @cusines.each do |cusine| %>
       <tr>
+        <td><%= cusine.id %></td>
         <td><%= cusine.name %></td>
         <td><%= cusine.description %></td>
         <td><%= cusine.icon %></td>
         <td><%= cusine.image %></td>
-        <td><%= link_to 'Show', cusine %></td>
-        <td><%= link_to 'Edit', edit_cusine_path(cusine) %></td>
-        <td><%= link_to 'Destroy', cusine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l cusine.created_at, format: :long %></td>
+        <td>
+          <%= link_to cusine_path(cusine), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to cusine_path(cusine), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Cusine', new_cusine_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_cusine_path,
+            :class => 'btn btn-primary' %>
