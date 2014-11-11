@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cusine.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @cusine.description %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @cusine.icon %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @cusine.image %>
+</p>
+
+<%= link_to 'Edit', edit_cusine_path(@cusine) %> |
+<%= link_to 'Back', cusines_path %>
