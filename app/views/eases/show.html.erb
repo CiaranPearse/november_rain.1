@@ -1,24 +1,30 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Ease -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Ease %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @ease.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @ease.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @ease.description %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:icon) %></dt>
+      <dd><pre class="prettyprint"><%= @ease.icon %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:image) %></dt>
+      <dd><pre class="prettyprint"><%= @ease.image %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @ease.description %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              eases_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_ease_path(@ease), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              ease_path(@ease),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Icon:</strong>
-  <%= @ease.icon %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @ease.image %>
-</p>
-
-<%= link_to 'Edit', edit_ease_path(@ease) %> |
-<%= link_to 'Back', eases_path %>
