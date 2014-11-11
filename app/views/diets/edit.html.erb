@@ -1,6 +1,5 @@
-<h1>Editing diet</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @diet %> |
-<%= link_to 'Back', diets_path %>
+<%- model_class = Diet -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Diet %></h1>
+</div>
+<%= render :partial => 'form' %>
