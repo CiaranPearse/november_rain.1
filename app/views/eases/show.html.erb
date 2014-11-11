@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ease.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ease.description %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @ease.icon %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @ease.image %>
+</p>
+
+<%= link_to 'Edit', edit_ease_path(@ease) %> |
+<%= link_to 'Back', eases_path %>
