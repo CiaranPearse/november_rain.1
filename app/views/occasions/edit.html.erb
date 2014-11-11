@@ -1,6 +1,5 @@
-<h1>Editing occasion</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @occasion %> |
-<%= link_to 'Back', occasions_path %>
+<%- model_class = Occasion -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Occasion %></h1>
+</div>
+<%= render :partial => 'form' %>
