@@ -1,0 +1,69 @@
+<h1>Listing recipes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Image credit</th>
+      <th>Yeild</th>
+      <th>Prep</th>
+      <th>Cook</th>
+      <th>Total</th>
+      <th>Ingredients</th>
+      <th>Diet</th>
+      <th>Course</th>
+      <th>Ease</th>
+      <th>Categories</th>
+      <th>Tags</th>
+      <th>Ratings</th>
+      <th>Comments</th>
+      <th>Facebook</th>
+      <th>Twitter</th>
+      <th>Pinterest</th>
+      <th>Stumbleupon</th>
+      <th>Gplus</th>
+      <th>Author</th>
+      <th>Added on</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.title %></td>
+        <td><%= recipe.description %></td>
+        <td><%= recipe.image %></td>
+        <td><%= recipe.image_credit %></td>
+        <td><%= recipe.yeild %></td>
+        <td><%= recipe.prep %></td>
+        <td><%= recipe.cook %></td>
+        <td><%= recipe.total %></td>
+        <td><%= recipe.ingredients %></td>
+        <td><%= recipe.diet %></td>
+        <td><%= recipe.course %></td>
+        <td><%= recipe.ease %></td>
+        <td><%= recipe.categories %></td>
+        <td><%= recipe.tags %></td>
+        <td><%= recipe.ratings %></td>
+        <td><%= recipe.comments %></td>
+        <td><%= recipe.facebook %></td>
+        <td><%= recipe.twitter %></td>
+        <td><%= recipe.pinterest %></td>
+        <td><%= recipe.stumbleupon %></td>
+        <td><%= recipe.gplus %></td>
+        <td><%= recipe.author %></td>
+        <td><%= recipe.added_on %></td>
+        <td><%= link_to 'Show', recipe %></td>
+        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recipe', new_recipe_path %>
