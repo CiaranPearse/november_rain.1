@@ -1,33 +1,148 @@
-<%= simple_form_for(@recipe) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :image %>
-    <%= f.input :image_credit %>
-    <%= f.input :yeild %>
-    <%= f.input :prep %>
-    <%= f.input :cook %>
-    <%= f.input :total %>
-    <%= f.input :ingredients %>
-    <%= f.input :diet %>
-    <%= f.input :course %>
-    <%= f.input :ease %>
-    <%= f.input :categories %>
-    <%= f.input :tags %>
-    <%= f.input :ratings %>
-    <%= f.input :comments %>
-    <%= f.input :facebook %>
-    <%= f.input :twitter %>
-    <%= f.input :pinterest %>
-    <%= f.input :stumbleupon %>
-    <%= f.input :gplus %>
-    <%= f.input :author %>
-    <%= f.input :added_on %>
+<%= form_for @recipe, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :title, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :title, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :description, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :image, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :image, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :image_credit, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :image_credit, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :yeild, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :yeild, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :prep, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :prep, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :cook, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :cook, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :total, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :total, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ingredients, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :ingredients, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :diet, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :diet, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :course, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :course, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ease, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :ease, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :categories, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :categories, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :tags, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :tags, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ratings, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :ratings, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :comments, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :comments, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :facebook, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :facebook, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :twitter, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :twitter, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :pinterest, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :pinterest, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :stumbleupon, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :stumbleupon, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :gplus, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :gplus, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :author, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :author, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :added_on, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :added_on, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  recipes_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

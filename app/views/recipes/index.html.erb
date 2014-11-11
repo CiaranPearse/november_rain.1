@@ -1,38 +1,42 @@
-<h1>Listing recipes</h1>
-
-<table>
+<%- model_class = Recipe -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Recipe %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th>Image credit</th>
-      <th>Yeild</th>
-      <th>Prep</th>
-      <th>Cook</th>
-      <th>Total</th>
-      <th>Ingredients</th>
-      <th>Diet</th>
-      <th>Course</th>
-      <th>Ease</th>
-      <th>Categories</th>
-      <th>Tags</th>
-      <th>Ratings</th>
-      <th>Comments</th>
-      <th>Facebook</th>
-      <th>Twitter</th>
-      <th>Pinterest</th>
-      <th>Stumbleupon</th>
-      <th>Gplus</th>
-      <th>Author</th>
-      <th>Added on</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:image) %></th>
+      <th><%= model_class.human_attribute_name(:image_credit) %></th>
+      <th><%= model_class.human_attribute_name(:yeild) %></th>
+      <th><%= model_class.human_attribute_name(:prep) %></th>
+      <th><%= model_class.human_attribute_name(:cook) %></th>
+      <th><%= model_class.human_attribute_name(:total) %></th>
+      <th><%= model_class.human_attribute_name(:ingredients) %></th>
+      <th><%= model_class.human_attribute_name(:diet) %></th>
+      <th><%= model_class.human_attribute_name(:course) %></th>
+      <th><%= model_class.human_attribute_name(:ease) %></th>
+      <th><%= model_class.human_attribute_name(:categories) %></th>
+      <th><%= model_class.human_attribute_name(:tags) %></th>
+      <th><%= model_class.human_attribute_name(:ratings) %></th>
+      <th><%= model_class.human_attribute_name(:comments) %></th>
+      <th><%= model_class.human_attribute_name(:facebook) %></th>
+      <th><%= model_class.human_attribute_name(:twitter) %></th>
+      <th><%= model_class.human_attribute_name(:pinterest) %></th>
+      <th><%= model_class.human_attribute_name(:stumbleupon) %></th>
+      <th><%= model_class.human_attribute_name(:gplus) %></th>
+      <th><%= model_class.human_attribute_name(:author) %></th>
+      <th><%= model_class.human_attribute_name(:added_on) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
+        <td><%= recipe.id %></td>
         <td><%= recipe.title %></td>
         <td><%= recipe.description %></td>
         <td><%= recipe.image %></td>
@@ -56,14 +60,21 @@
         <td><%= recipe.gplus %></td>
         <td><%= recipe.author %></td>
         <td><%= recipe.added_on %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l recipe.created_at, format: :long %></td>
+        <td>
+          <%= link_to recipe_path(recipe), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to recipe_path(recipe), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Recipe', new_recipe_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_recipe_path,
+            :class => 'btn btn-primary' %>

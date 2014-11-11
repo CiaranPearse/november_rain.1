@@ -1,119 +1,68 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Recipe -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Recipe %></h1>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @recipe.title %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:title) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.title %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.description %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:image) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.image %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:image_credit) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.image_credit %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:yeild) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.yeild %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:prep) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.prep %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:cook) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.cook %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:total) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.total %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:ingredients) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.ingredients %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:diet) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.diet %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:course) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.course %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:ease) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.ease %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:categories) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.categories %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:tags) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.tags %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:ratings) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.ratings %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:comments) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.comments %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:facebook) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.facebook %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:twitter) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.twitter %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:pinterest) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.pinterest %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:stumbleupon) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.stumbleupon %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:gplus) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.gplus %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:author) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.author %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:added_on) %></dt>
+      <dd><pre class="prettyprint"><%= @recipe.added_on %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              recipes_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_recipe_path(@recipe), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              recipe_path(@recipe),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Image:</strong>
-  <%= @recipe.image %>
-</p>
-
-<p>
-  <strong>Image credit:</strong>
-  <%= @recipe.image_credit %>
-</p>
-
-<p>
-  <strong>Yeild:</strong>
-  <%= @recipe.yeild %>
-</p>
-
-<p>
-  <strong>Prep:</strong>
-  <%= @recipe.prep %>
-</p>
-
-<p>
-  <strong>Cook:</strong>
-  <%= @recipe.cook %>
-</p>
-
-<p>
-  <strong>Total:</strong>
-  <%= @recipe.total %>
-</p>
-
-<p>
-  <strong>Ingredients:</strong>
-  <%= @recipe.ingredients %>
-</p>
-
-<p>
-  <strong>Diet:</strong>
-  <%= @recipe.diet %>
-</p>
-
-<p>
-  <strong>Course:</strong>
-  <%= @recipe.course %>
-</p>
-
-<p>
-  <strong>Ease:</strong>
-  <%= @recipe.ease %>
-</p>
-
-<p>
-  <strong>Categories:</strong>
-  <%= @recipe.categories %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <%= @recipe.tags %>
-</p>
-
-<p>
-  <strong>Ratings:</strong>
-  <%= @recipe.ratings %>
-</p>
-
-<p>
-  <strong>Comments:</strong>
-  <%= @recipe.comments %>
-</p>
-
-<p>
-  <strong>Facebook:</strong>
-  <%= @recipe.facebook %>
-</p>
-
-<p>
-  <strong>Twitter:</strong>
-  <%= @recipe.twitter %>
-</p>
-
-<p>
-  <strong>Pinterest:</strong>
-  <%= @recipe.pinterest %>
-</p>
-
-<p>
-  <strong>Stumbleupon:</strong>
-  <%= @recipe.stumbleupon %>
-</p>
-
-<p>
-  <strong>Gplus:</strong>
-  <%= @recipe.gplus %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @recipe.author %>
-</p>
-
-<p>
-  <strong>Added on:</strong>
-  <%= @recipe.added_on %>
-</p>
-
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
