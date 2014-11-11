@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :datapoints
+
   resources :publishers
 
   resources :recipes
